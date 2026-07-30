@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Matrimonio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #fff8f0, #fce4ec);
+      color: #333;
+      text-align: center;
+      overflow: hidden; /* para que las animaciones no generen scroll */
+    }
+
+    /* Banner elegante */
+    .banner {
+      background: url('banner.jpg') center no-repeat;
+      background-size: auto;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      animation: fadeInDown 2s ease forwards;
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    /* Botón */
+    .btn {
+      display: inline-block;
+      margin: 2rem 0;
+      padding: 1rem 2rem;
+      background-color: #b71c1c;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+    .btn:hover {
+      background-color: #880e4f;
+    }
+
+    footer {
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animaciones de corazones y estrellas */
+    .floating {
+      position: absolute;
+      top: 100%;
+      font-size: 1.5rem;
+      animation: floatUp linear forwards;
+      color: #b71c1c;
+      z-index: 1;
+    }
+    .star {
+      color: gold;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .banner h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Banner principal -->
+  <div class="banner">
+    <h1>¡Nuestra Boda!</h1>
+  </div>
+
+  <!-- Mensaje personalizado -->
+  <section>
+    <h2>Querido/a [Nombre del Invitado]</h2>
+    <p>Con mucha alegría queremos invitarte a celebrar nuestro matrimonio.</p>
+    <p>📅 Fecha: Sabado 3 de Octubre 2026</p>
+    <p>📍 Lugar: Carmen 110 Piso 26, Santiago</p>
+    <p>⏰ Hora: 17:00 hrs</p>
+  </section>
+
+  <!-- Botón de más información -->
+  <a href="https://regalanovios.com/weddings/proyecto-boda-318" class="btn">Más información</a>
+
+<footer>
+  <!-- Espacio extra -->
+  <div style="margin-top: 2rem;"></div>
+
+  <!-- Logo centrado -->
+  <img src="logo.png" alt="Logo boda" style="width:100px; height:auto; display:block; margin:0 auto 1rem;">
+
+  <!-- Texto final -->
+  <p>Con cariño, Samuel & Natalia</p>
+</footer>
+
+  <!-- Script para generar corazones y estrellas -->
+<style>
+  /* Animaciones de corazones y estrellas */
+  .floating {
+    position: fixed; /* ahora se superponen sobre todo */
+    bottom: -50px;
+    font-size: 1.8rem;
+    animation: floatUp linear forwards;
+    z-index: 9999; /* asegura que estén al frente */
+    pointer-events: none; /* no bloquean clics en botones */
+  }
+  .star {
+    color: gold;
+  }
+  .heart {
+    color: #b71c1c;
+  }
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-120vh); opacity: 0; }
+  }
+</style>
+
+<script>
+  function createFloatingSymbol(symbol, className) {
+    const elem = document.createElement("div");
+    elem.className = "floating " + className;
+    elem.textContent = symbol;
+    elem.style.left = Math.random() * 100 + "vw";
+    elem.style.animationDuration = (3 + Math.random() * 4) + "s";
+    document.body.appendChild(elem);
+    setTimeout(() => elem.remove(), 8000);
+  }
+
+  // Más frecuencia: cada 400ms en vez de 800ms
+  setInterval(() => {
+    if (Math.random() > 0.5) {
+      createFloatingSymbol("❤", "heart");
+    } else {
+      createFloatingSymbol("★", "star");
+    }
+  }, 400);
+</script>
+</body>
+</html>
