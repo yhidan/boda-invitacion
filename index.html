@@ -12,13 +12,14 @@
       color: #333;
       text-align: center;
       overflow: hidden; /* para que las animaciones no generen scroll */
+      padding-bottom: 80px; /* asegura espacio para el footer */
     }
 
     /* Banner elegante */
     .banner {
       background: url('banner.jpg') center no-repeat;
       background-size: auto;
-      height: 300px;
+      min-height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -57,7 +58,8 @@
       font-size: 0.9rem;
       color: #555;
       position: relative;
-      z-index: 2;
+      z-index: 10000;     /* más alto que las animaciones */
+      background: rgba(255,255,255,0.8); /* opcional, para contraste */
     }
 
     @keyframes fadeInDown {
@@ -73,6 +75,7 @@
       animation: floatUp linear forwards;
       color: #b71c1c;
       z-index: 1;
+      pointer-events: none; /* no bloquea clics ni interacción */
     }
     .star {
       color: gold;
