@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Matrimonio</title>
+    <!-- Open Graph -->
+  <meta property="og:title" content="¡Nuestra Boda!">
+  <meta property="og:description" content="Samuel & [Nombre de tu pareja] te invitan a celebrar su matrimonio.">
+  <meta property="og:image" content="https://serrano.videla.net/img/fondo.jpg">
+  <meta property="og:url" content="https://serrano.videla.net">
+  <meta property="og:type" content="website">
+
+  <!-- Opcional: Twitter cards (también las usa WhatsApp a veces) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="¡Nuestra Boda!">
+  <meta name="twitter:description" content="Samuel & Natalia te invitan a celebrar su matrimonio.">
+  <meta name="twitter:image" content="https://serrano.videla.net/img/fondo.jpg">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #fff8f0, #fce4ec);
+      color: #333;
+      text-align: center;
+      padding-bottom: 100px; /* asegura espacio para el footer */
+    }
+
+    /* Banner elegante con overlay */
+    .banner {
+      position: relative;
+      background: url('../img/banner.jpg') center/cover no-repeat;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+    .banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.3); /* overlay semitransparente */
+      z-index: 1;
+    }
+    .banner h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    /* Botón */
+    .btn {
+      display: inline-block;
+      margin: 2rem 0;
+      padding: 1rem 2rem;
+      background-color: #6956d8;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+    .btn:hover {
+      background-color: #880e4f;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 10000; /* siempre al frente */
+      background: rgba(255,255,255,0.8);
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    footer img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    /* Animaciones de corazones y estrellas */
+    .floating {
+      position: fixed;
+      bottom: -50px;
+      font-size: 1.8rem;
+      animation: floatUp linear forwards;
+      z-index: 9999; /* al frente de todo */
+      pointer-events: none; /* no bloquea clics */
+    }
+    .star { color: gold; }
+    .heart { color: #b71c1c; }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .banner h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Banner principal -->
+  <div class="banner">
+    <h1>¡Nuestra Boda!</h1>
+  </div>
+
+  <!-- Mensaje personalizado -->
+  <section>
+    <h2>Querido Cristian</h2>
+    <p>Con mucha alegría queremos invitarte a celebrar nuestro matrimonio.</p>
+    <p>📅 Fecha: Sabado 3 de Octubre 2026</p>
+    <p>📍 Lugar: Carmen 110 Piso 26, Santiago</p>
+    <p>⏰ Hora: 17:00 hrs</p>
+  </section>
+
+  <!-- Botón de más información -->
+  <a href="https://regalanovios.com/weddings/proyecto-boda-318" class="btn">Más información</a>
+
+  <!-- Footer con logo y texto -->
+  <footer>
+    <img src="../img/logo.png" alt="Logo boda">
+    <p>Con cariño, Samuel & Natalia</p>
+  </footer>
+
+  <!-- Script para generar corazones y estrellas -->
+  <script>
+    function createFloatingSymbol(symbol, className) {
+      const elem = document.createElement("div");
+      elem.className = "floating " + className;
+      elem.textContent = symbol;
+      elem.style.left = Math.random() * 100 + "vw";
+      elem.style.animationDuration = (3 + Math.random() * 4) + "s";
+      document.body.appendChild(elem);
+      setTimeout(() => elem.remove(), 8000);
+    }
+
+    // Más frecuencia: cada 400ms
+    setInterval(() => {
+      if (Math.random() > 0.5) {
+        createFloatingSymbol("❤", "heart");
+      } else {
+        createFloatingSymbol("★", "star");
+      }
+    }, 400);
+  </script>
+</body>
+</html>
